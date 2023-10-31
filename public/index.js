@@ -1,9 +1,16 @@
-function main(){
+async function main(){
     const countContainer = document.querySelector('#count-container');
     const incrementButton = document.querySelector('#increment-button');
     const decrementButton = document.querySelector('#decrement-button');
 
-    let countValue = 0;
+
+ let response = await fetch('https://localhost:9001/counter');
+
+ let resObj = await response.json()
+    
+
+
+    let countValue = resObj.value;
 
     function increment(){
         countValue++;
